@@ -1,8 +1,8 @@
 'use strict';
 
-var value = function(v) {
+var get = function(v) {
   return Object.create(null, {
-    value: {value: v},
+    get: {value: v},
   });
 };
 
@@ -20,7 +20,14 @@ var enumerableValue = function(v) {
   });
 };
 
+var value = function(v) {
+  return Object.create(null, {
+    value: {value: v},
+  });
+};
+
 module.exports = {
+  get: get,
   enumerableGet: enumerableGet,
   enumerableValue: enumerableValue,
   value: value,
